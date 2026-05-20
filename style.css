@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #f1f5f9;
+  color: #334155;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.app-container {
+  background-color: white;
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px rgba(15, 23, 42, .2);
+  header {
+    text-align: center;
+    h1 {
+      color: #0f172a;
+      margin-bottom: .25rem;
+    }
+  }
+  #task-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    #task-input {
+      width: 60%;
+      padding: .75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: .5rem;
+      outline: none;
+      transition: border-color .3s;
+      &:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 5px rgba(15, 23, 42, .2);
+      }
+    }
+    #add-btn {
+      background-color: #3b82f6;
+      color: white;
+      padding: .75rem 1.5rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: .3s;
+      &:hover {
+        background-color: #2563eb;
+      }
+      &:disabled {
+        background-color: #94a3b8;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
