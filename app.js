@@ -1,4 +1,5 @@
-const API_URL = 'https://crudcrud.com/api/21021eac47db4ef096bb4d6ce8c1ec47/tasks';
+const taskList = document.getElementById('task-list');
+const API_URL = 'https://crudcrud.com/api/c30167173cd64953a1c57c686f9eebe3/tasks';
 
 const fetchTasks = async () => {
   try {
@@ -7,6 +8,14 @@ const fetchTasks = async () => {
 
     const tasks = await response.json();
     console.log(tasks);
+    taskList.innerHTML = '';
+    const template = tasks.map(task => `
+      <li class="task-item">
+        <span class="task-name">${task.name}!</span>
+        <button class="btn-delete" data-id="${task._id}">&#x2715;</button>
+      </li>
+    `).join('');
+    taskList.innerHTML = template;
   } catch (error) {
     console.error(error.message);
   }
@@ -28,7 +37,7 @@ form.addEventListener('submit', async e => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ task: taskField.value })
+      body: JSON.stringify({ name: taskField.value })
     });
     if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
     fetchTasks();
