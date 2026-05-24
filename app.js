@@ -7,7 +7,6 @@ const fetchTasks = async () => {
     if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
 
     const tasks = await response.json();
-    console.log(tasks);
     taskList.innerHTML = '';
     const template = tasks.map(task => `
       <li class="task-item">
@@ -47,5 +46,21 @@ form.addEventListener('submit', async e => {
     addBtn.disabled = false;
     addBtn.textContent = 'Add Task';
     form.reset();
+  }
+});
+taskList.addEventListener('click', async e => {
+  e.preventDefault();
+
+  if (e.target.classList.contains('btn-delete')) {
+    const taskId = e.target.dataset.id;
+    if (!confirm('Delete this task?')) return;
+
+    try {
+      const response = await fetch(`${API_URL}/${taskId}`, { method: 'DELETE' });
+      if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
+      fetchTasks();
+    } catch (error) {
+      console.error(error.message);
+    }
   }
 });
