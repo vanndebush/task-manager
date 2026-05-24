@@ -20,20 +20,18 @@
       <input type="text" id="task-input" placeholder="What needs to be done?" required autofocus>
       <button type="submit" id="add-btn">Add Task</button>
     </form>
-    <ul id="task-list">
-      <li class="task-item">
-        <span class="task-name">Hey, it is still dummy!</span>
-        <button class="btn-delete">&#x2715;</button>
-      </li>
-      <li class="task-item">
-        <span class="task-name">Hey, it is still dummy!</span>
-        <button class="btn-delete">&#x2715;</button>
-      </li>
-      <li class="task-item">
-        <span class="task-name">Hey, it is still dummy!</span>
-        <button class="btn-delete">&#x2715;</button>
-      </li>
-    </ul>
+    <ul id="task-list"></ul>
   </main>
+
+  <div id="delete-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <h3>Delete Task?</h3>
+      <p>Are you sure you want to delete this task? This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button id="cancel-delete" class="btn-cancel">Cancel</button>
+        <button id="confirm-delete" class="btn-confirm-delete">Delete</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
