@@ -33,5 +33,17 @@
       </div>
     </div>
   </div>
+  <div id="edit-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <h3>Edit Task</h3>
+      <form id="edit-form" autocomplete="off">
+        <input type="text" id="edit-input" required>
+        <div class="modal-actions">
+          <button type="button" id="cancel-edit" class="btn-cancel">Cancel</button>
+          <button type="submit" id="confirm-edit" class="btn-confirm-edit">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
